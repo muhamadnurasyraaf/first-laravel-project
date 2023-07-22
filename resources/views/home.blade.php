@@ -1,8 +1,6 @@
 @extends('layout.main')
 
 @section('container')
-    <h1>Ni home page lah kote</h1>
-    <p class="bg-danger ">{{ $username }}</p>
-
-   
+    <h1>Welcome to our website </h1>
+    <p>tell me how can I assist you today?</p>
 @endsection

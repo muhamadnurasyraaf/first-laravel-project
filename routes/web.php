@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home',[
         'title' => 'Home',
-        'username' => 'Adam Harith',
     ]);
 });
 Route::get('/about',function(){
@@ -32,25 +32,7 @@ Route::get('/about',function(){
   
 
 
-Route::get('/post',function(){
-    $blog_post =[
-       
-    ];
-    return view('/posts',[
-        'title' => 'Blog',
-        'posts' => Post::all(),
-    ]);
-});
+Route::get('/post',[PostController::class,'index']);
 
-Route::get('/post/{slug}',function($slug){
-
-    
-    
-    
-
-    return view('post',[
-        'title' => 'Post',
-        'post' => Post::find($slug),
-    ]);
-});
+Route::get('/post/{post:id}',[PostController::class,'show']);
 
